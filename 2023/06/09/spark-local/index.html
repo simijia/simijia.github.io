@@ -193,7 +193,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Hello World","path":"2023/06/07/hello-world/"},{"title":"六、Spark（Pyspark基础编码环境）","path":"2023/06/09/pyspark/"},{"title":"hive部署","path":"2023/06/09/hive/"},{"title":"Spark Local环境部署","path":"2023/06/09/spark-local/"}]`)
+  const posts = JSON.parse(`[{"title":"Docker","path":"2023/06/09/Docker/"},{"title":"Git","path":"2023/06/09/Git配置/"},{"title":"Hello World","path":"2023/06/07/hello-world/"},{"title":"hive部署","path":"2023/06/09/hive/"},{"title":"六、Spark（Pyspark基础编码环境）","path":"2023/06/09/pyspark/"},{"title":"Spark Local环境部署","path":"2023/06/09/spark-local/"},{"title":"stand-alone,HA,Yarn","path":"2023/06/14/stand-alone和HA和Yarn/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -327,7 +327,7 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>4 篇</span>
+        <span>7 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
@@ -335,7 +335,7 @@
       </p>
       <p class="main-left--subtitle">
         <span>上线时间：</span>
-        <span>479天</span>
+        <span>10天</span>
       </p>
       <p class="main-left--subtitle">
         <span>当前版本：</span>
@@ -398,40 +398,40 @@ pre:active {
 <li>安装Anaconda3</li>
 <li>上传安装包，Anaconda3-2021.05-Linux-x86_64.sh到虚拟机上</li>
 </ol>
-<p><img src="/../images/%E5%9B%BE%E7%89%871.png" alt="图片1.png"><br>3. 安装：sh .&#x2F;Anaconda3-2021.05-Linux-x86_64.s</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%872.png" alt="图片2.png"><br>看到please,press ENTER to continue直接回车，直到看见询问你是否接受协议</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%873.png" alt="图片3.png"><br>输入YES，之后他会问你将Anaconda3安装到哪</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%874.png" alt="图片4.png"><br>注意不要打错，错了可以ctrl + c 停止重新安装，推荐放在&#x2F;export&#x2F;server&#x2F;anaconda3<br>之后，询问你是否初始化，输入yes后安装完成</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%871.png" alt="图片1.png"><br>3. 安装：sh .&#x2F;Anaconda3-2021.05-Linux-x86_64.s</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%872.png" alt="图片2.png"><br>看到please,press ENTER to continue直接回车，直到看见询问你是否接受协议</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%873.png" alt="图片3.png"><br>输入YES，之后他会问你将Anaconda3安装到哪</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%874.png" alt="图片4.png"><br>注意不要打错，错了可以ctrl + c 停止重新安装，推荐放在&#x2F;export&#x2F;server&#x2F;anaconda3<br>之后，询问你是否初始化，输入yes后安装完成</p>
 <p>我们退出finalshell，重新进入就可以看见，开头有base，这就代表已经安装成功。</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%875.png" alt="图片5.png"><br>（base）代表是默认的虚拟环境<br>（1）我们需要创建pyspark的环境，基于python3.8</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%875.png" alt="图片5.png"><br>（base）代表是默认的虚拟环境<br>（1）我们需要创建pyspark的环境，基于python3.8</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pyspark python=3.8</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/%E5%9B%BE%E7%89%876.png"><br><img src="/../images/%E5%9B%BE%E7%89%877.png"><br>（2）切换到pyspark虚拟环境内</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%876.png"><br><img src="/../image/%E5%9B%BE%E7%89%877.png"><br>（2）切换到pyspark虚拟环境内</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pyspark</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/%E5%9B%BE%E7%89%878.png" alt="8"><br>开头的base变成pyspark代表成功切换到pyspark环境<br>（3）在虚拟环境中安装包</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%878.png" alt="8"><br>开头的base变成pyspark代表成功切换到pyspark环境<br>（3）在虚拟环境中安装包</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyspark==3.2.0 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 <p>我们直接安装3.2.0版本，防止之后的因为版本过低使用时报错</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%879.png" alt="9"><br>以上是linux虚拟环境上安装我们也需要在windons上安装<br>官网下载:[<a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual#Downloads]">https://www.anaconda.com/products/individual#Downloads]</a></p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8710.png" alt="10"><br><img src="/../images/%E5%9B%BE%E7%89%8711.png" alt="11"><br>最后不用勾选，直接Finish完成安装<br>我们到菜单搜索Anaconda</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8712.png" alt="12"><br>双击打开，</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8713.png" alt="13"><br>出现base代表成功<br>之后重复上述（1）（2）（3）的操作，下载pyspark 并安装包<br>到这里我们部署spark local的前提已经做好了！<br>1.解压下载的Spark安装包到&#x2F;export&#x2F;server&#x2F;</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%879.png" alt="9"><br>以上是linux虚拟环境上安装我们也需要在windons上安装<br>官网下载:[<a target="_blank" rel="noopener" href="https://www.anaconda.com/products/individual#Downloads]">https://www.anaconda.com/products/individual#Downloads]</a></p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8710.png" alt="10"><br><img src="/../image/%E5%9B%BE%E7%89%8711.png" alt="11"><br>最后不用勾选，直接Finish完成安装<br>我们到菜单搜索Anaconda</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8712.png" alt="12"><br>双击打开，</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8713.png" alt="13"><br>出现base代表成功<br>之后重复上述（1）（2）（3）的操作，下载pyspark 并安装包<br>到这里我们部署spark local的前提已经做好了！<br>1.解压下载的Spark安装包到&#x2F;export&#x2F;server&#x2F;</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C /export/server/</span><br></pre></td></tr></table></figure>
 <p>2.设置软连接</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /export/server/</span><br><span class="line">ln -s /export/server/spark-3.2.0-bin-hadoop3.2 /spark</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/%E5%9B%BE%E7%89%8714.png" alt="14"><br>3.配置环境变量</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8714.png" alt="14"><br>3.配置环境变量</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/%E5%9B%BE%E7%89%8715.png" alt="15"><br>添加以下信息：</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8715.png" alt="15"><br>添加以下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#JAVA_HOME</span><br><span class="line">export JAVA_HOME=/export/server/jdk</span><br><span class="line">#HADOOP_HOME</span><br><span class="line">export HADOOP_HOME=/export/server/Hadoop</span><br><span class="line">#SPARK_HOME</span><br><span class="line">export SPARK_HOME=/export/server/spark</span><br><span class="line">#HADOOP_CONF_DIR</span><br><span class="line">export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</span><br><span class="line">#PYSPARK_PYTHON</span><br><span class="line">export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/%E5%9B%BE%E7%89%8716.png" alt="16"><br><img src="/../images/%E5%9B%BE%E7%89%8717.png" alt="17"><br>PYSPARK_PYTHON和 JAVA_HOME 需要同样配置在: &#x2F;root&#x2F;.bashrc中</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8716.png" alt="16"><br><img src="/../image/%E5%9B%BE%E7%89%8717.png" alt="17"><br>PYSPARK_PYTHON和 JAVA_HOME 需要同样配置在: &#x2F;root&#x2F;.bashrc中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#JAVA_HOME</span><br><span class="line">export JAVA_HOME=/export/server/jdk</span><br><span class="line">#PYSPARK_PYTHON</span><br><span class="line">export PYSPARK_PYTHON=/export/server/anaconda3/envs/pyspark/bin/python</span><br></pre></td></tr></table></figure>
 <p>4.保存之后，记得刷新source &#x2F;etc&#x2F;profile<br>5.测试<br>bin&#x2F;pyspark 程序, 可以提供一个  <code>交互式</code>的 Python解释器环境, 在这里面可以写普通python代码, 以及spark代码<br>首先进入pyspark环境下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pyspark</span><br></pre></td></tr></table></figure>
-<p><img src="/../images/%E5%9B%BE%E7%89%8718.png" alt="18"><br>打开HDFS集群<br><img src="/../images/%E5%9B%BE%E7%89%8719.png" alt="19"><br>我们在&#x2F;export&#x2F;server&#x2F;spark目录下输入bin&#x2F;pyspark<br>如果出现拒绝连接的报错<br>可以查看集群，或者DataNode的内存不够了，开启了安全模式，使用hdfs dfsadmin -safemode leave关闭。</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8720.png" alt="20"><br>如果是上图的报错，是因为他没有在HDFS上生成存储日志的目录，你可以自己创建<br><img src="/../images/25.png" alt="25"><br><img src="/../images/%E5%9B%BE%E7%89%8721.png" alt="21"></p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8718.png" alt="18"><br>打开HDFS集群<br><img src="/../image/%E5%9B%BE%E7%89%8719.png" alt="19"><br>我们在&#x2F;export&#x2F;server&#x2F;spark目录下输入bin&#x2F;pyspark<br>如果出现拒绝连接的报错<br>可以查看集群，或者DataNode的内存不够了，开启了安全模式，使用hdfs dfsadmin -safemode leave关闭。</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8720.png" alt="20"><br>如果是上图的报错，是因为他没有在HDFS上生成存储日志的目录，你可以自己创建<br><img src="/../image/25.png" alt="25"><br><img src="/../image/%E5%9B%BE%E7%89%8721.png" alt="21"></p>
 <p>这就已经代表我们进入spark了，现在我们可以运行代码试一下</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8722.png" alt="22"><br>我们可以在4040端口使用浏览器打开它</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8723.png" alt="23"><br>如果4040被占用找不到可以向后查找4041……<br>在虚拟机中jps一下</p>
-<p><img src="/../images/%E5%9B%BE%E7%89%8724.png" alt="24"><br>可以看到local的进程，既是master也是worker<br>bin&#x2F;spark-shell - 了解<br>同样是一个解释器环境, 和<code>bin/pyspark</code>不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码<br>bin&#x2F;spark-submit (PI)<br>作用: 提交指定的Spark代码到Spark环境中运行<br>使用方法:</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8722.png" alt="22"><br>我们可以在4040端口使用浏览器打开它</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8723.png" alt="23"><br>如果4040被占用找不到可以向后查找4041……<br>在虚拟机中jps一下</p>
+<p><img src="/../image/%E5%9B%BE%E7%89%8724.png" alt="24"><br>可以看到local的进程，既是master也是worker<br>bin&#x2F;spark-shell - 了解<br>同样是一个解释器环境, 和<code>bin/pyspark</code>不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码<br>bin&#x2F;spark-submit (PI)<br>作用: 提交指定的Spark代码到Spark环境中运行<br>使用方法:</p>
 <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>bin&#x2F;spark-submit [可选的一些选项] jar包或者python代码的路径 [代码的参数]</p>
 
     </article>
@@ -467,7 +467,7 @@ pre:active {
           
             <p>
               <span>下一篇</span>
-              <a href="/2023/06/09/pyspark/">六、Spark（Pyspark基础编码环境）</a>
+              <a href="/2023/06/09/Docker/">Docker</a>
             </p>
           
         </div>
