@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——hive部署 | Hexo</title>
+  <title>我的技术与生活——Zookeeper | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——hive部署`
+    document.title = `我的技术与生活——Zookeeper`
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -371,7 +371,7 @@ pre:active {
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">hive部署</h1>
+    <h1 class="article-title">Zookeeper</h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
@@ -387,25 +387,35 @@ pre:active {
             
           </div>
           
-          <p class="article-info--date">日期：2023-06-09 10:41:42</p>
+          <p class="article-info--date">日期：2023-06-18 20:37:09</p>
         </div>
         <img src="/imgs/default-cover.webp" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content">
-      <p>#Hive部署<br>##一．上传安装包 解压</p>
-<p><img src="/../images2/%E5%9B%BE%E7%89%871.png"></p>
-<h2 id="二．解决Hive与hadoop之间guava版本差异"><a href="#二．解决Hive与hadoop之间guava版本差异" class="headerlink" title="二．解决Hive与hadoop之间guava版本差异"></a>二．解决Hive与hadoop之间guava版本差异</h2><p><img src="/../images2/%E5%9B%BE%E7%89%872.png"></p>
-<h2 id="三．修改配置文件"><a href="#三．修改配置文件" class="headerlink" title="三．修改配置文件"></a>三．修改配置文件</h2><p>1.hive-env.sh<br><img src="/../images2/%E5%9B%BE%E7%89%873.png"><br>2.hive-site.xml<br><img src="/../images2/%E5%9B%BE%E7%89%874.png"><br><img src="/../images2/%E5%9B%BE%E7%89%875.png"></p>
-<h2 id="四．上传mysql-jdbc驱动到hive安装包lib下"><a href="#四．上传mysql-jdbc驱动到hive安装包lib下" class="headerlink" title="四．上传mysql jdbc驱动到hive安装包lib下"></a>四．上传mysql jdbc驱动到hive安装包lib下</h2><p><img src="/../images2/%E5%9B%BE%E7%89%876.png"></p>
-<h2 id="五．初始化元数据"><a href="#五．初始化元数据" class="headerlink" title="五．初始化元数据"></a>五．初始化元数据</h2><p><img src="/../images2/%E5%9B%BE%E7%89%877.png"></p>
-<h2 id="六．启动hive"><a href="#六．启动hive" class="headerlink" title="六．启动hive"></a>六．启动hive</h2><p>1.启动metastore服务<br><img src="/../images2/%E5%9B%BE%E7%89%878.png"><br><img src="/../images2/%E5%9B%BE%E7%89%879.png"><br><img src="/../images2/%E5%9B%BE%E7%89%8710.png"><br>2.启动hiveserver2服务<br><img src="/../images2/%E5%9B%BE%E7%89%8711.png"><br>3.beeline客户端连接–拷贝node1安装包到beeline客户端机器上（node3）<br><img src="/../images2/%E5%9B%BE%E7%89%8712.png"></p>
+      <h1 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h1><h2 id="（1）安装前需要安装好jdk"><a href="#（1）安装前需要安装好jdk" class="headerlink" title="（1）安装前需要安装好jdk"></a>（1）安装前需要安装好jdk</h2><p><img src="/../lj/1.png"></p>
+<h2 id="（2）检测集群时间是否同步"><a href="#（2）检测集群时间是否同步" class="headerlink" title="（2）检测集群时间是否同步"></a>（2）检测集群时间是否同步</h2><p><img src="/../lj/2.png"></p>
+<h2 id="（3）检测防火墙是否关闭"><a href="#（3）检测防火墙是否关闭" class="headerlink" title="（3）检测防火墙是否关闭"></a>（3）检测防火墙是否关闭</h2><p><img src="/../lj/3.png"></p>
+<h2 id="（4）检测主机ip映射有没有配置"><a href="#（4）检测主机ip映射有没有配置" class="headerlink" title="（4）检测主机ip映射有没有配置"></a>（4）检测主机ip映射有没有配置</h2><h1 id="2-解压"><a href="#2-解压" class="headerlink" title="2.解压"></a>2.解压</h1><h2 id="（1）将zookeeper安装包放到-x2F-export-x2F-software路径下，解压到-x2F-export-x2F-server"><a href="#（1）将zookeeper安装包放到-x2F-export-x2F-software路径下，解压到-x2F-export-x2F-server" class="headerlink" title="（1）将zookeeper安装包放到&#x2F;export&#x2F;software路径下，解压到&#x2F;export&#x2F;server"></a>（1）将zookeeper安装包放到&#x2F;export&#x2F;software路径下，解压到&#x2F;export&#x2F;server</h2><p>cd &#x2F;export&#x2F;software<br>tar -zxvf apache-zookeeper-3.7.0.tar.gz -C &#x2F;export&#x2F;server&#x2F;<br><img src="/../lj/4.png"><br>解压后，&#x2F;export&#x2F;server路径下将出现apache-zookeeper-3.7.0-bin这个文件夹<br><img src="/../lj/5.png"></p>
+<h2 id="（2）创建软链接"><a href="#（2）创建软链接" class="headerlink" title="（2）创建软链接"></a>（2）创建软链接</h2><p>ln -s &#x2F;export&#x2F;server&#x2F;apache-zookeeper-3.7.0-bin&#x2F; &#x2F;export&#x2F;server&#x2F;zookeeper<br><img src="/../lj/6.png"></p>
+<h1 id="3-修改环境变量（三台都需要改）"><a href="#3-修改环境变量（三台都需要改）" class="headerlink" title="3.修改环境变量（三台都需要改）"></a>3.修改环境变量（三台都需要改）</h1><p>vi &#x2F;etc&#x2F;profile<br>export ZOOKEEPER_HOME&#x3D;&#x2F;export&#x2F;server&#x2F;zookeeper<br>export PATH&#x3D;$PATH:$ZOOKEEPER_HOME&#x2F;bin<br><img src="/../lj/7.png"><br>修改后source &#x2F;etc&#x2F;profile，重新加载配置文件。</p>
+<h1 id="4-修改zookeeper配置文件"><a href="#4-修改zookeeper配置文件" class="headerlink" title="4.修改zookeeper配置文件"></a>4.修改zookeeper配置文件</h1><p>cd &#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;conf&#x2F;</p>
+<h2 id="（1）复制文件zoo-sample-cfg并将文件名修改为zoo-cfg"><a href="#（1）复制文件zoo-sample-cfg并将文件名修改为zoo-cfg" class="headerlink" title="（1）复制文件zoo_sample.cfg并将文件名修改为zoo.cfg"></a>（1）复制文件zoo_sample.cfg并将文件名修改为zoo.cfg</h2><p>cp zoo_sample.cfg zoo.cfg<br><img src="/../lj/8.png"></p>
+<h2 id="（2）创建zookeeper数据存放目录"><a href="#（2）创建zookeeper数据存放目录" class="headerlink" title="（2）创建zookeeper数据存放目录"></a>（2）创建zookeeper数据存放目录</h2><p>mkdir -p &#x2F;export&#x2F;data&#x2F;zookeeper&#x2F;zkdatas&#x2F;<br><img src="/../lj/9.png"></p>
+<h2 id="（3）修改文件zoo-cfg内容"><a href="#（3）修改文件zoo-cfg内容" class="headerlink" title="（3）修改文件zoo.cfg内容"></a>（3）修改文件zoo.cfg内容</h2><p>vim zoo.cfg<br>#Zookeeper的数据存放目录<br>dataDir &#x3D; &#x2F;export&#x2F;data&#x2F;zookeeper&#x2F;zkdatas&#x2F;<br>#保留多少个快照<br>autopurge.snapRetainCount &#x3D; 3<br>#日志多少小时清理一次<br>autopurge.purgeInterval &#x3D; 1<br>#集群中服务器地址<br>server.1 &#x3D; node1:2888:3888<br>server.2 &#x3D; node2:2888:3888<br>server.3 &#x3D; node3:2888:3888<br><img src="/../lj/10.png"></p>
+<h1 id="5-添加myid配置"><a href="#5-添加myid配置" class="headerlink" title="5.添加myid配置"></a>5.添加myid配置</h1><p>在node1主机的&#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;zkdatas&#x2F;这个路径下创建一个文件，文件名为myid ,文件内容为1<br>echo 1 &gt; &#x2F;export&#x2F;data&#x2F;zookeeper&#x2F;zkdatas&#x2F;myid<br><img src="/../lj/11.png"></p>
+<h1 id="6-给node2、node3分发安装包并修改myid的值"><a href="#6-给node2、node3分发安装包并修改myid的值" class="headerlink" title="6.给node2、node3分发安装包并修改myid的值"></a>6.给node2、node3分发安装包并修改myid的值</h1><h2 id="（1）在node1上，将安装包分发到其他机器"><a href="#（1）在node1上，将安装包分发到其他机器" class="headerlink" title="（1）在node1上，将安装包分发到其他机器"></a>（1）在node1上，将安装包分发到其他机器</h2><p>在node1上面执行以下两个命令<br>cd &#x2F;export&#x2F;server&#x2F;<br>scp -r &#x2F;export&#x2F;server&#x2F;apache-zookeeper-3.7.0-bin&#x2F; root@node2:&#x2F;export&#x2F;server&#x2F;<br><img src="/../lj/12.png"><br>scp -r &#x2F;export&#x2F;server&#x2F;apache-zookeeper-3.7.0-bin&#x2F; root@node3:&#x2F;export&#x2F;server&#x2F;<br><img src="/../lj/13.png"></p>
+<h2 id="（2）在node2上建立软连接-并修改myid的值为2"><a href="#（2）在node2上建立软连接-并修改myid的值为2" class="headerlink" title="（2）在node2上建立软连接, 并修改myid的值为2"></a>（2）在node2上建立软连接, 并修改myid的值为2</h2><p>cd &#x2F;export&#x2F;server&#x2F;<br>ln -s &#x2F;export&#x2F;server&#x2F;zookeeper-3.7.0&#x2F; &#x2F;export&#x2F;server&#x2F;zookeeper<br><img src="/../lj/14.png"><br>echo 2 &gt; &#x2F;export&#x2F;data&#x2F;zookeeper&#x2F;zkdatas&#x2F;myid<br><img src="/../lj/15.png"></p>
+<h2 id="（3）在node3上建立软连接-并修改myid的值为3"><a href="#（3）在node3上建立软连接-并修改myid的值为3" class="headerlink" title="（3）在node3上建立软连接, 并修改myid的值为3"></a>（3）在node3上建立软连接, 并修改myid的值为3</h2><p>cd &#x2F;export&#x2F;server&#x2F;<br>ln -s &#x2F;export&#x2F;server&#x2F;zookeeper-3.7.0&#x2F; &#x2F;export&#x2F;server&#x2F;zookeeper<br><img src="/../lj/16.png"><br>echo 3 &gt; &#x2F;export&#x2F;data&#x2F;zookeeper&#x2F;zkdatas&#x2F;myid<br><img src="/../lj/17.png"></p>
+<h1 id="7-三台机器启动zookeeper服务"><a href="#7-三台机器启动zookeeper服务" class="headerlink" title="7. 三台机器启动zookeeper服务"></a>7. 三台机器启动zookeeper服务</h1><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>三台机器分别启动zookeeper服务,这个命令三台机器都要执行<br>&#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;bin&#x2F;zkServer.sh start<br>三台主机分别查看启动状态<br>&#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;bin&#x2F;zkServer.sh status<br>node1:<br><img src="/../lj/18.png"><br><img src="/../lj/19.png"><br>node2:<br><img src="/../lj/20.png"><br><img src="/../lj/21.png"><br>node3:<br><img src="/../lj/22.png"><br><img src="/../lj/23.png"></p>
+<h2 id="方法2："><a href="#方法2：" class="headerlink" title="方法2："></a>方法2：</h2><p>编写一个shell脚本来批量启动所有机器<br>mkdir &#x2F;export&#x2F;shell<br>vim zkall.sh<br>#!&#x2F;bin&#x2F;bash</p>
+<p>case $1 in<br>“start”){<br>    for i in node1 node2 node3<br>    do<br>        echo ———- zookeeper $i 启动 ————<br>        ssh $i “&#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;bin&#x2F;zkServer.sh start”<br>    done<br>};;<br>“stop”){<br>    for i in node1 node2 node3<br>    do<br>        echo ———- zookeeper $i 停止 ————<br>        ssh $i “&#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;bin&#x2F;zkServer.sh stop”<br>    done<br>};;<br>“status”){<br>    for i in node1 node2 node3<br>    do<br>        echo ———- zookeeper $i 状态 ————<br>        ssh $i “&#x2F;export&#x2F;server&#x2F;zookeeper&#x2F;bin&#x2F;zkServer.sh status”<br>    done<br>};;<br>Esac<br><img src="/../lj/24.png"><br>配置zk脚本环境变量<br>vi &#x2F;etc&#x2F;profile<br>#ZOOKEEPER_SHELL_HOME<br>export ZKS_HOME&#x3D;&#x2F;export&#x2F;shell&#x2F;<br>export PATH&#x3D;$PATH:$ZKS_HOME<br><img src="/../lj/25.png"><br>修改后，source &#x2F;etc&#x2F;profile使环境变量生效<br>启动测试<br>chmod 777 &#x2F;export&#x2F;shell&#x2F;zkall.sh<br>zkall.sh start<br><img src="/../lj/26.png"><br>查看状态<br>zkall.sh status<br><img src="/../lj/27.png"><br>注：这个方法有可能会不成功，在查看状态时报错，只需在根目录下的.bashrc文件中，将所有的环境变量填入，即可解决这个问题（三台机器的.bashrc中都需填入）<br><img src="/../lj/28.png"><br>填入后要source .bashrc。</p>
 
     </article>
     
     <div class="read-nums">
       <!-- id 将作为查询条件 -->
-      <span id="2023/06/09/hive/" class="leancloud_visitors" data-flag-title="Your Article Title">
+      <span id="2023/06/18/Zookeeper/" class="leancloud_visitors" data-flag-title="Your Article Title">
         <em class="post-meta-item-text">浏览量</em>
         <i class="leancloud-visitors-count"></i>
       </span>
@@ -421,20 +431,15 @@ pre:active {
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%8E%E8%A7%A3%E5%86%B3Hive%E4%B8%8Ehadoop%E4%B9%8B%E9%97%B4guava%E7%89%88%E6%9C%AC%E5%B7%AE%E5%BC%82"><span class="toc-number">1.</span> <span class="toc-text">二．解决Hive与hadoop之间guava版本差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%8E%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">三．修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%EF%BC%8E%E4%B8%8A%E4%BC%A0mysql-jdbc%E9%A9%B1%E5%8A%A8%E5%88%B0hive%E5%AE%89%E8%A3%85%E5%8C%85lib%E4%B8%8B"><span class="toc-number">3.</span> <span class="toc-text">四．上传mysql jdbc驱动到hive安装包lib下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%EF%BC%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">五．初始化元数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%EF%BC%8E%E5%90%AF%E5%8A%A8hive"><span class="toc-number">5.</span> <span class="toc-text">六．启动hive</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">1.准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%AE%89%E8%A3%85%E5%89%8D%E9%9C%80%E8%A6%81%E5%AE%89%E8%A3%85%E5%A5%BDjdk"><span class="toc-number">1.1.</span> <span class="toc-text">（1）安装前需要安装好jdk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%A3%80%E6%B5%8B%E9%9B%86%E7%BE%A4%E6%97%B6%E9%97%B4%E6%98%AF%E5%90%A6%E5%90%8C%E6%AD%A5"><span class="toc-number">1.2.</span> <span class="toc-text">（2）检测集群时间是否同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%A3%80%E6%B5%8B%E9%98%B2%E7%81%AB%E5%A2%99%E6%98%AF%E5%90%A6%E5%85%B3%E9%97%AD"><span class="toc-number">1.3.</span> <span class="toc-text">（3）检测防火墙是否关闭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E6%A3%80%E6%B5%8B%E4%B8%BB%E6%9C%BAip%E6%98%A0%E5%B0%84%E6%9C%89%E6%B2%A1%E6%9C%89%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">（4）检测主机ip映射有没有配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%A7%A3%E5%8E%8B"><span class="toc-number">2.</span> <span class="toc-text">2.解压</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%B0%86zookeeper%E5%AE%89%E8%A3%85%E5%8C%85%E6%94%BE%E5%88%B0-x2F-export-x2F-software%E8%B7%AF%E5%BE%84%E4%B8%8B%EF%BC%8C%E8%A7%A3%E5%8E%8B%E5%88%B0-x2F-export-x2F-server"><span class="toc-number">2.1.</span> <span class="toc-text">（1）将zookeeper安装包放到&#x2F;export&#x2F;software路径下，解压到&#x2F;export&#x2F;server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%88%9B%E5%BB%BA%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">2.2.</span> <span class="toc-text">（2）创建软链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%88%E4%B8%89%E5%8F%B0%E9%83%BD%E9%9C%80%E8%A6%81%E6%94%B9%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">3.修改环境变量（三台都需要改）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9zookeeper%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">4.修改zookeeper配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6zoo-sample-cfg%E5%B9%B6%E5%B0%86%E6%96%87%E4%BB%B6%E5%90%8D%E4%BF%AE%E6%94%B9%E4%B8%BAzoo-cfg"><span class="toc-number">4.1.</span> <span class="toc-text">（1）复制文件zoo_sample.cfg并将文件名修改为zoo.cfg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%88%9B%E5%BB%BAzookeeper%E6%95%B0%E6%8D%AE%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95"><span class="toc-number">4.2.</span> <span class="toc-text">（2）创建zookeeper数据存放目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6zoo-cfg%E5%86%85%E5%AE%B9"><span class="toc-number">4.3.</span> <span class="toc-text">（3）修改文件zoo.cfg内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0myid%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">5.添加myid配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E7%BB%99node2%E3%80%81node3%E5%88%86%E5%8F%91%E5%AE%89%E8%A3%85%E5%8C%85%E5%B9%B6%E4%BF%AE%E6%94%B9myid%E7%9A%84%E5%80%BC"><span class="toc-number">6.</span> <span class="toc-text">6.给node2、node3分发安装包并修改myid的值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%9C%A8node1%E4%B8%8A%EF%BC%8C%E5%B0%86%E5%AE%89%E8%A3%85%E5%8C%85%E5%88%86%E5%8F%91%E5%88%B0%E5%85%B6%E4%BB%96%E6%9C%BA%E5%99%A8"><span class="toc-number">6.1.</span> <span class="toc-text">（1）在node1上，将安装包分发到其他机器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%9C%A8node2%E4%B8%8A%E5%BB%BA%E7%AB%8B%E8%BD%AF%E8%BF%9E%E6%8E%A5-%E5%B9%B6%E4%BF%AE%E6%94%B9myid%E7%9A%84%E5%80%BC%E4%B8%BA2"><span class="toc-number">6.2.</span> <span class="toc-text">（2）在node2上建立软连接, 并修改myid的值为2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%9C%A8node3%E4%B8%8A%E5%BB%BA%E7%AB%8B%E8%BD%AF%E8%BF%9E%E6%8E%A5-%E5%B9%B6%E4%BF%AE%E6%94%B9myid%E7%9A%84%E5%80%BC%E4%B8%BA3"><span class="toc-number">6.3.</span> <span class="toc-text">（3）在node3上建立软连接, 并修改myid的值为3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E4%B8%89%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%90%AF%E5%8A%A8zookeeper%E6%9C%8D%E5%8A%A1"><span class="toc-number">7.</span> <span class="toc-text">7. 三台机器启动zookeeper服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="toc-number">7.1.</span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%952%EF%BC%9A"><span class="toc-number">7.2.</span> <span class="toc-text">方法2：</span></a></li></ol></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
-          
-            <p>
-              <span>上一篇：</span>
-              <a href="/2023/06/09/Git配置/">Git</a>
-            </p>
            
           
             <p>
               <span>下一篇</span>
-              <a href="/2023/06/09/spark-local/">Spark Local环境部署</a>
+              <a href="/2023/06/14/stand-alone和HA和Yarn/">stand-alone,HA,Yarn</a>
             </p>
           
         </div>
@@ -457,7 +462,7 @@ pre:active {
     recordIP: config.recordIP,
     visitor: config.visitor,
     enableQQ: config.enableQQ,
-    path: '2023/06/09/hive/'
+    path: '2023/06/18/Zookeeper/'
   })
 </script>
 
