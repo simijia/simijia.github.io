@@ -193,7 +193,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Docker","path":"2023/06/09/Docker/"},{"title":"Git","path":"2023/06/09/Git配置/"},{"title":"Kafka Eagle","path":"2023/06/19/Kafka Eagle/"},{"title":"Zookeeper","path":"2023/06/18/Zookeeper/"},{"title":"hive部署","path":"2023/06/09/hive/"},{"title":"六、Spark（Pyspark基础编码环境）","path":"2023/06/09/pyspark/"},{"title":"Hello World","path":"2023/06/07/hello-world/"},{"title":"stand-alone,HA,Yarn","path":"2023/06/14/stand-alone和HA和Yarn/"},{"title":"Spark Local环境部署","path":"2023/06/09/spark-local/"}]`)
+  const posts = JSON.parse(`[{"title":"Docker","path":"2023/06/09/Docker/"},{"title":"Flume部署","path":"2023/06/19/Flume部署/"},{"title":"Git","path":"2023/06/09/Git配置/"},{"title":"Kafka Eagle","path":"2023/06/19/Kafka Eagle/"},{"title":"kafka","path":"2023/06/19/Kafka/"},{"title":"flume","path":"2023/06/19/flume/"},{"title":"Zookeeper","path":"2023/06/18/Zookeeper/"},{"title":"Hello World","path":"2023/06/07/hello-world/"},{"title":"hive部署","path":"2023/06/09/hive/"},{"title":"六、Spark（Pyspark基础编码环境）","path":"2023/06/09/pyspark/"},{"title":"Spark Local环境部署","path":"2023/06/09/spark-local/"},{"title":"sqoop","path":"2023/06/19/sqoop/"},{"title":"stand-alone,HA,Yarn","path":"2023/06/14/stand-alone和HA和Yarn/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
@@ -327,7 +327,7 @@
       </h5>
       <p class="main-left--subtitle">
         <span>文章数目：</span>
-        <span>9 篇</span>
+        <span>13 篇</span>
       </p>
       <p class="main-left--subtitle">
         <span>最近动态：</span>
@@ -357,7 +357,37 @@
           <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
         </div>
         <div class="index-article--content">
-          <a href="/2023/06/19/Kafka%20Eagle/">Kafka Eagle </a>
+          <a href="/2023/06/19/sqoop/">sqoop </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/06/19/Kafka/">kafka </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/06/19/flume/">flume </a>
           <div>
             
             
@@ -396,38 +426,38 @@
         </div>
       </div>
     
-      <div class="index-article">
-        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/06/09/Docker/">Docker </a>
-          <div>
-            
-            
-          </div>
-          <div class="bg"></div>
-        </div>
-      </div>
-    
-      <div class="index-article">
-        <!-- <img class="index-article--cover" src="/imgs/default-cover.webp" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/06/07/hello-world/">Hello World </a>
-          <div>
-            
-            
-          </div>
-          <div class="bg"></div>
-        </div>
-      </div>
-    
   </div>
   <div class="index-center">
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/06/19/Flume%E9%83%A8%E7%BD%B2/">Flume部署 </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
+    
+      <div class="index-article">
+        <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
+        <div class="index-article--box">
+          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
+        </div>
+        <div class="index-article--content">
+          <a href="/2023/06/19/Kafka%20Eagle/">Kafka Eagle </a>
+          <div>
+            
+            
+          </div>
+          <div class="bg"></div>
+        </div>
+      </div>
     
       <div class="index-article">
         <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
@@ -474,30 +504,19 @@
         </div>
       </div>
     
-      <div class="index-article">
-        <!-- <img class="index-article--cover" data-cover="" src="/imgs/default-cover.webp" alt=""> -->
-        <div class="index-article--box">
-          <img class="index-article--cover" data-cover="imgs/default-cover.webp" alt="">
-        </div>
-        <div class="index-article--content">
-          <a href="/2023/06/09/pyspark/">六、Spark（Pyspark基础编码环境） </a>
-          <div>
-            
-            
-          </div>
-          <div class="bg"></div>
-        </div>
-      </div>
-    
   </div>
   <div class="index-right">
     <div class="index-right-wrapper">
       
       
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">2023年06月</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">2023年06月</a><span class="archive-list-count">13</span></li></ul>
     </div>
   </div>
 </div>
+
+  <div class="page">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/2023/page/2/">2</a><a class="extend next" rel="next" href="/archives/2023/page/2/">&gt;</a>
+  </div>
 
 
 <script>
