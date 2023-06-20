@@ -193,7 +193,7 @@
   const ipt = document.querySelector('#search-input')
   const btn = document.querySelector('#search-btn')
   const layer = document.querySelector('#search-layer')
-  const posts = JSON.parse(`[{"title":"Docker","path":"2023/06/09/Docker/"},{"title":"Flume部署","path":"2023/06/19/Flume部署/"},{"title":"Git","path":"2023/06/09/Git配置/"},{"title":"Kafka Eagle","path":"2023/06/19/Kafka Eagle/"},{"title":"kafka","path":"2023/06/19/Kafka/"},{"title":"Zookeeper","path":"2023/06/18/Zookeeper/"},{"title":"flume","path":"2023/06/19/flume/"},{"title":"Hello World","path":"2023/06/07/hello-world/"},{"title":"hive部署","path":"2023/06/09/hive/"},{"title":"六、Spark（Pyspark基础编码环境）","path":"2023/06/09/pyspark/"},{"title":"Spark Local环境部署","path":"2023/06/09/spark-local/"},{"title":"sqoop","path":"2023/06/19/sqoop/"},{"title":"stand-alone,HA,Yarn","path":"2023/06/14/stand-alone和HA和Yarn/"}]`)
+  const posts = JSON.parse(`[{"title":"Docker","path":"2023/06/09/Docker/"},{"title":"Git","path":"2023/06/09/Git配置/"},{"title":"Flume部署","path":"2023/06/19/Flume部署/"},{"title":"kafka","path":"2023/06/19/Kafka/"},{"title":"Kafka Eagle","path":"2023/06/19/Kafka Eagle/"},{"title":"Zookeeper","path":"2023/06/18/Zookeeper/"},{"title":"Hello World","path":"2023/06/07/hello-world/"},{"title":"flume","path":"2023/06/19/flume/"},{"title":"六、Spark（Pyspark基础编码环境）","path":"2023/06/09/pyspark/"},{"title":"hive部署","path":"2023/06/09/hive/"},{"title":"Spark Local环境部署","path":"2023/06/09/spark-local/"},{"title":"stand-alone,HA,Yarn","path":"2023/06/14/stand-alone和HA和Yarn/"},{"title":"sqoop","path":"2023/06/19/sqoop/"}]`)
   ipt.addEventListener('keyup', e => {
     if (e.key === 'Enter') {
       handleSearch()
